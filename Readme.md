@@ -62,6 +62,21 @@ $ python -m pytest --setup-show --cov=app --cov-config=.coveragerc --cov-report 
 ```
 
 The coverage report is available at `htmlcov/index.html`.
+
+<img src="https://user-images.githubusercontent.com/6600991/171801918-213ba0c0-3a87-4cb6-8cf1-5acd8725b827.png" width="500" />
+
+## AWS
+
+The project can be found at [http://geosp-loadb-1avw1ouse7vg4-15203507.us-west-2.elb.amazonaws.com/](http://geosp-loadb-1avw1ouse7vg4-15203507.us-west-2.elb.amazonaws.com/).
+The deployment on AWS was made using the aws cli on a ECS Task. 
+
+
+<img src="https://user-images.githubusercontent.com/6600991/171806847-99a28290-c7cd-4b13-8e59-d2fa0e5db707.png" width="500" />
+
+<img src="https://user-images.githubusercontent.com/6600991/171806856-20495b8a-2f8c-4363-8127-e076dd6d6875.png" width="500" />
+
+<img src="https://user-images.githubusercontent.com/6600991/171806867-79e0bbc0-3e6a-4a15-bf85-771b85953545.png" width="500" />
+
 ## Tech
 
 This project uses a number of third party libraries to work properly:
