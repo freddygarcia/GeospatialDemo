@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 flask = "2.1.2"
 python-dotenv = "0.20.0"
+sqlalchemy = "1.4.36"
+psycopg2-binary = "2.9.3"
+geoalchemy2 = "0.10.2"
+geopandas = "0.10.2"
 
 [dev-packages]
 flake8 = "*"
