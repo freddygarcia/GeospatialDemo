@@ -1,0 +1,69 @@
+version: "3"
+
+services:
+  proxy:
+    image: zoren101/proxy
+    ports:
+      - "80:80"
+    links:
+      - db
+      - api
+    depends_on:
+      - api
+      - web
+    logging:
+      driver: awslogs
+      options:
+         awslogs-group: geospatial
+         awslogs-region: us-west-2
+         awslogs-stream-prefix: geospatial-nginx
+  db:
+    image: "postgis/postgis:11-3.2-alpine"
+    restart: always
+    healthcheck:
+      test: ["CMD", "psql", "-U", "postgres", "-c", "SELECT 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    environment:
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$DB_NAME
+    logging:
+      driver: awslogs
+      options:
+         awslogs-group: geospatial
+         awslogs-region: us-west-2
+         awslogs-stream-prefix: geospatial-db
+  api:
+    image: zoren101/geospatial-api
+    environment:
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
+      - DB_HOST=$DB_HOST
+      - DB_ENGINE=$DB_ENGINE
+      - SCRIPT_NAME=$API_URL
+    depends_on:
+      - db
+    links:
+      - db      
+    logging:
+      driver: awslogs
+      options:
+         awslogs-group: geospatial
+         awslogs-region: us-west-2
+         awslogs-stream-prefix: geospatial-api
+  web:
+    image: zoren101/geospatial-front
+    links:
+      - api
+    depends_on:
+      - api
+    logging:
+      driver: awslogs
+      options:
+         awslogs-group: geospatial
+         awslogs-region: us-west-2
+         awslogs-stream-prefix: geospatial-web
