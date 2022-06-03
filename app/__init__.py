@@ -8,6 +8,7 @@ from app.settings import get_config
 def create_app():
     Config = get_config()()
     app = Flask(__name__)
+    api = Api(app)
     app.config.from_object(Config)
 
     from app.api.routes import api_namespace
