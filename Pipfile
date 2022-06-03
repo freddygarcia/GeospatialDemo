@@ -14,3 +14,6 @@ geopandas = "0.10.2"
 
 [dev-packages]
 flake8 = "*"
+pytest = "7.1.2"
+pytest-cov = "*"
+pytest-mock = "*"
