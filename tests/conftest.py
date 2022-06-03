@@ -2,11 +2,11 @@ import pytest
 from flask import Flask
 from app.api.models import GroceryStore
 from app import create_app
-
+from app.settings import TestingConfig
 
 @pytest.fixture
 def flask_app_mock():
-    flask_app = create_app()
+    flask_app = create_app(TestingConfig())
     return flask_app
 
 

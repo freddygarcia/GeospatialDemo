@@ -36,6 +36,7 @@ class DevelopmentConfig(BaseConfig):
 class TestingConfig(BaseConfig):
     """Testing configuration"""
     TESTING = True
+    SHOULD_INIT_DB = False
 
 
 class ProductionConfig(BaseConfig):
