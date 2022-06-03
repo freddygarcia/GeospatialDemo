@@ -1,0 +1,106 @@
+.header{
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.list {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.list ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.list ul li {
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  color: #212529;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list ul li * {
+  padding-right: 3%;
+}
+
+
+.list ul li.selected {
+  background-color: #40464c ;
+  color: white;
+}
+
+.list ul li .details {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+}
+
+.list ul li .phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list ul li .addr {
+  font-size: 8pt;
+}
+
+
+.list ul li:first-child {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.list ul li:last-child {
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.list ul li:not(.selected):hover {
+  background-color: rgb(245, 245, 245, 0.9);
+}
+
+form input {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5em;
+}
+
+form button {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5em;
+}
+
+form pre {
+  min-height: 5em;
+  background-color: #f5f5f5;
+}
+
+.text-info {
+  color: #007bff;
+  position: relative;
+  font-size: large;
+  top: 20px;
+}
