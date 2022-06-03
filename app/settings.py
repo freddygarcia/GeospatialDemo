@@ -1,6 +1,8 @@
 import os
 import dotenv
+import logging
 
+logging.basicConfig(level=logging.INFO)
 dotenv.load_dotenv()
 
 
@@ -23,7 +25,7 @@ class BaseConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # If the database should be reset on application start
-    SHOULD_INIT_DB = os.getenv('INIT_DB', False)
+    SHOULD_INIT_DB = os.getenv('INIT_DB', True)
 
 
 class DevelopmentConfig(BaseConfig):
